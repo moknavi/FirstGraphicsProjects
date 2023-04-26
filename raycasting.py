@@ -6,6 +6,7 @@ import pygame.gfxdraw
 
 coordinates = []
 edges = []
+color = (255, 255, 255)
 
 with open("coordinates.txt", "r") as file:
     for line in file:
@@ -16,19 +17,7 @@ with open("edges.txt", "r") as file:
         edges.append(line)
 
 pygame.init()
-color = pygame.Color(255, 255, 255)
-screen = pygame.display.set_mode((800, 800))
-canvas = pygame.Surface((800, 800))
-pygame.gfxdraw.pixel(canvas, 400, 400, color)
-playFurther = True
+pygame.display.set_mode((800, 800))
 
-while playFurther:
-    pygame.gfxdraw.hline(canvas, 0, 800, 400, color)
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            playFurther = False
-            print(event)
-        else:
-            print(event)
-
-pygame.quit()
+while True:
+    pygame.gfxdraw.pixel(pygame.display.get_surface(), 400, 400, color)
