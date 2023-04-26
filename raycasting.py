@@ -4,6 +4,8 @@
 import pygame
 import pygame.gfxdraw
 
+a = 5
+
 coordinates = []
 edges = []
 color = (255, 255, 255)
