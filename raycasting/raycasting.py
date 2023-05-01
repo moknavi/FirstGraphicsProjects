@@ -18,6 +18,11 @@ with open("edges.txt", "r") as file:
     for line in file:
         edges.append(line)
 
+def cast(xcor, ycor, zcor, camDistance):
+    x = round((xcor * camDistance) / (zcor + camDistance))
+    y = round((ycor * camDistance) / (zcor + camDistance))
+    return (x, y)
+
 pygame.init()
 pygame.display.set_mode((800, 800))
 
