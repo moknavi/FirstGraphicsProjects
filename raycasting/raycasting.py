@@ -12,6 +12,10 @@ with open("coordinates.txt", "r") as file:
     for line in file:
         coordinates.append(line)
 
+with open("edges.txt", "r") as file:
+    for line in file:
+        edges.append(line)
+
 def cast(xcor, ycor, zcor, camDistance):
     x = round((xcor * camDistance) / (zcor + camDistance))
     y = round((ycor * camDistance) / (zcor + camDistance))
@@ -21,4 +25,6 @@ pygame.init()
 pygame.display.set_mode((800, 800))
 
 while True:
-    pygame.gfxdraw.pixel(pygame.display.get_surface(), 400, 400, color)
+    screen = pygame.display.get_surface()
+    pygame.gfxdraw.pixel(screen, 400, 400, color)
+    pygame.display.flip()
