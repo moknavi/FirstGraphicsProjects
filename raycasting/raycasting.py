@@ -4,27 +4,39 @@
 import pygame
 import pygame.gfxdraw
 
-coordinates = []
+points = {}
 edges = []
 color = (255, 255, 255)
 
-with open("coordinates.txt", "r") as file:
+with open("points.txt", "r") as file:
     for line in file:
-        coordinates.append(line)
+        line.strip()
+        nameAndCoords = line.split(":")
+        name = nameAndCoords[0]
+        coords = nameAndCoords[1].split(",")
+        points |= {name: coords}
 
 with open("edges.txt", "r") as file:
     for line in file:
+        line.strip()
         edges.append(line)
 
 def cast(xcor, ycor, zcor, camDistance):
+    xcor = int(xcor)
+    ycor = int(ycor)
+    zcor = int(zcor)
     x = round((xcor * camDistance) / (zcor + camDistance))
     y = round((ycor * camDistance) / (zcor + camDistance))
     return (x, y)
 
 pygame.init()
 pygame.display.set_mode((800, 800))
+screen = pygame.display.get_surface()
+
 
 while True:
-    screen = pygame.display.get_surface()
-    pygame.gfxdraw.pixel(screen, 400, 400, color)
+    for edge in edges:
+        stPoint = cast(points[edge[0]][0], points[edge[0]][1], points[edge[0]][2], camDistance=200)
+        ndPoint = cast(points[edge[1]][0], points[edge[1]][1], points[edge[1]][2], camDistance=200)
+        pygame.gfxdraw.line()
     pygame.display.flip()
