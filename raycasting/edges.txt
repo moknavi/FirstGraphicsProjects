@@ -1,0 +1,12 @@
+AB
+BC
+CD
+DA
+EF
+FG
+GH
+HE
+AE
+BF
+CG
+DH
