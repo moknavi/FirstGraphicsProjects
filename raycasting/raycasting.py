@@ -38,5 +38,5 @@ while True:
     for edge in edges:
         stPoint = cast(points[edge[0]][0], points[edge[0]][1], points[edge[0]][2], camDistance=200)
         ndPoint = cast(points[edge[1]][0], points[edge[1]][1], points[edge[1]][2], camDistance=200)
-        pygame.gfxdraw.line()
+        pygame.gfxdraw.line(screen, stPoint[0], stPoint[1], ndPoint[0], ndPoint[1], color)
     pygame.display.flip()
