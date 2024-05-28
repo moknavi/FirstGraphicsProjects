@@ -9,7 +9,7 @@ points = {}
 edges = []
 color = (255, 255, 255)
 
-with open("points.txt", "r") as file:
+with open("raycasting/points.txt", "r") as file:
     for line in file:
         line.strip()
         nameAndCoords = line.split(":")
@@ -17,7 +17,7 @@ with open("points.txt", "r") as file:
         coords = nameAndCoords[1].split(",")
         points.update({name: coords})
 
-with open("edges.txt", "r") as file:
+with open("raycasting/edges.txt", "r") as file:
     for line in file:
         line.strip()
         edges.append(line)
